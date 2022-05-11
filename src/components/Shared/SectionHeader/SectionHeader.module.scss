@@ -1,0 +1,89 @@
+@import "../../../styles/fixed-styles";
+.section__wrapper{
+    @extend %mainSectionsStyle;
+    height: fit-content;
+    .section__header{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        .section__headerTitle{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .header__icon{
+                display: inline-block;
+                margin-inline-end: 10px;
+                font-size: 24px;
+                color: rgba(187, 196, 201, .85);
+                svg{
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            h2{
+                font-size: 20px;
+                color: rgba(187, 196, 201, .85);
+            }
+            .chevron__icon{
+                @extend .header__icon;
+                margin-inline-start: 10px;
+                &.expanded{
+                    transform: rotate(180deg);
+                }
+            }
+            &:hover{
+                span,h2{
+                    color: white;
+                }
+            }
+        }
+        .section__headerDetails{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            &.isExpanded{
+                justify-content: space-between;
+            }
+            .details__totalAmount{
+                display: flex;
+                flex-direction: column;
+                h5{
+                    font-size: 14px;
+                    color: #83838d;
+                    font-weight: 300;
+                    @media (min-width:768px) {
+                        font-weight: 400;
+                    }
+                }
+                h4{
+                    font-size: 14px;
+                    @media (min-width:768px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .details__linkWrapper{
+                display: none;
+                &.isExpanded{
+                    display: block;
+                }
+                .details__link{
+                    @extend %subButton;
+                    padding-block: 8px;
+                    text-decoration: none;
+                    span{
+                        padding-inline-end: 8px;
+                        font-size: 14px;
+                        &:nth-of-type(1){
+                            font-size: 14px;
+                            svg{
+                                width: 14px;
+                                height: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

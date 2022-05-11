@@ -1,0 +1,107 @@
+@import "../../../styles/fixed-styles";
+.slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 450ms linear;
+    border-radius: 12px;
+    background-color: #191a26;
+    padding: 12px 20px;
+    .slide__contentWrapper{
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        @media (min-width:992px) {
+            height: inherit;
+
+        }
+        .content__title{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex-grow: 1;
+            transition: transform 450ms linear;
+            h2{
+                font-size: 12px;
+            }
+            h5{
+                font-size: 12px;
+                font-weight: 300;
+            }
+            @media (min-width:992px) {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                height: 100%;             
+                z-index: 100;
+                h2{
+                    font-size: 24px;
+                    margin-bottom: 2px;
+                }
+                h5{
+                    font-size: 14px;
+                }
+            }
+        }
+        .content__details{
+            display: flex;
+            @media (min-width:992px) {              
+            }
+            .details__imageWrapper{
+                width: 297px;
+                height: 60px;
+                margin-top: -12px;
+                margin-inline-end: -15px;
+                transform-origin: 100% 100%;
+                transition: transform 450ms linear;
+                img{
+                    width: 297px;
+                    height: 60px;
+                    opacity: .5;
+                }
+                @media (min-width:992px) {
+                    position: absolute;
+                    right: 20px;
+                    bottom: 0;
+                    width: auto;
+                    height: auto;
+                    transition: transform 450ms linear;
+                    z-index: 99;
+                    img{
+                        width: auto;
+                        height: 120px;
+                        opacity: 1;
+                    }
+                }
+            }
+            .details__linkWrapper{
+                .details__link{
+                    @extend %mainButton;
+                    background-color: #2da36a;
+                    padding-inline: 24px;
+                    height: 36px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    span{
+                        white-space: nowrap;
+                    }
+                }
+                @media (min-width:992px) {
+                    transition: transform 450ms linear;
+                    position: absolute;
+                    left: 20px;
+                    bottom: 20px;
+                    display: flex;
+                    align-items: flex-end;
+                    z-index: 100;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+}

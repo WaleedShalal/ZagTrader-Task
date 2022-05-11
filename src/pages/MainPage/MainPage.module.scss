@@ -1,0 +1,32 @@
+.main__page{
+    min-height: 100vh;
+    background: linear-gradient(122deg, #3e3f54, #323342);
+    padding-top: 54px;
+    .main__pageWrapper{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
+        column-gap: 15px;
+        padding-inline-end: 15px;
+        .page__subNavWrapper{
+            @media (min-width:992px) {
+                position: sticky;
+                top: 54px;
+                height: calc(100vh - 54px);
+            }
+        }
+        .page__sectionsWrapper{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2,auto);
+            row-gap: 15px;
+            margin-top: 26px;
+            @media (min-width:768px) and (max-width:992px) {
+                margin-top: 35px;
+            }
+            @media (min-width:992px) {
+                margin-top: 15px;
+            }
+        }
+    }
+}

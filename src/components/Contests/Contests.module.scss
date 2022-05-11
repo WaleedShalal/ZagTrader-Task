@@ -1,0 +1,142 @@
+@import "../../styles/fixed-styles";
+@import "../CopyTradingPortfolio/CopyTradingPortfolio.module.scss";
+
+.contests{
+    @extend %mainSectionsStyle;
+    margin-bottom: 75px;
+    @media (min-width:992px) {
+        margin-bottom: 15px;
+    }
+    .header__wrapper{
+        .header{
+            align-items: center;
+            .header__title{
+                display: flex;
+                flex-grow: 1;
+                justify-content: start;
+                align-items: center;
+                cursor: pointer;
+                .header__icon{
+                    display: inline-block;
+                    margin-inline-end: 10px;
+                    font-size: 24px;
+                    color: rgba(187, 196, 201, .85);
+                    svg{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                h2{
+                    font-size: 16px;
+                    color: rgba(187, 196, 201, .85);
+                    @media (min-width:992px) {
+                        font-size: 20px;  
+                    }
+                }
+                .chevron__icon{
+                    @extend .header__icon;
+                    padding-inline-start: 10px;
+                    padding-inline-end: 0;
+                    &.expanded{
+                        transform: rotate(180deg);
+                        padding-inline-start: 0;
+                        padding-inline-end: 10px;
+                    }
+                }
+                &:hover{
+                    span,h2{
+                        color: white;
+                    }
+                }
+            }
+            .join__contestLinkWrapper{
+                .join__contestLink{
+                    @extend %subButton;
+                    padding-block: 8px;
+                    text-decoration: none;
+                    @media (max-width:767.98px) {
+                        padding: 9px;
+                    }
+                    span{
+                        font-size: 14px;
+                        &:nth-of-type(1){
+                            padding-inline-end: 8px;
+                            font-size: 14px;
+                            svg{
+                                width: 14px;
+                                height: 14px;
+                            }
+                            @media (max-width:767.98px) {
+                                font-size: 12px;
+                                padding-inline-end: 0;
+                                svg{
+                                    width: 12px;
+                                    height: 12px;
+                                }
+                            }
+                        }
+                        &:last-of-type(){
+                            @media (max-width:767.98px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    .section__bodyWrapper{
+        margin-top: 20px;
+        border-radius: 8px;
+        background: linear-gradient(90deg,#1d1329 0%,#1e1429 20%,#0c0b29 100%);
+        overflow: hidden;
+        display: none;
+        &.isExpanded{
+            display: block;
+        }
+        .body{
+            display: grid;
+            grid-template-columns: minmax(auto,1fr) auto minmax(auto,1fr);
+            grid-template-rows: 100px;
+            column-gap: 10px;
+            align-items: center;
+            .body__image{
+                height: 100%;
+                img{
+                    width: 229px;
+                    height: 115px;
+                    bottom: -18px;
+                }
+            }
+            .title__Wrapper{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: white;
+                .title{
+                    font-size: 24px;
+                    font-weight: 500;
+                }
+                .sub__title{
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+            }
+            .join__nowLinkWrapper{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                padding-inline-end: 50px;
+                .join__nowLink{
+                    @extend %mainButton;
+                    padding-block: 8px;
+                    text-decoration: none;
+                    span{
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+.total__funds{
+    background-color: #2b2b3c;
+    box-shadow: 0 6px 10px rgba(42, 46, 54 , .65);
+    padding: 14px;
+    border-radius: 12px;
+    height: fit-content;
+    order: 2;
+    @media (min-width:768px) {
+      padding: 20px;
+    }
+    @media (min-width:992px) {
+      order: 1;
+    }
+    .total__fundsHeader{
+      margin-bottom: 14px;
+      @media (min-width:768px) {
+        margin-bottom: 20px;
+        }
+        .funds__headerTitle{
+            span{
+              color: rgba(187, 196, 201, .85);
+              font-size: 16px;
+              &:last-of-type{
+                padding-inline-start: 8px;
+                svg{
+                  color: #83838d;
+                }
+              }
+              @media (min-width:992px) {
+                font-size: 20px;
+              }
+          }
+        }
+        .funds__headerMask{
+            color: #bbc4c9;
+            align-items: center;
+            .switch__inputToggle {
+                display: none;
+            }
+            .switch__inputLabel {
+                position: relative;
+                display: block;
+                width: 36px;
+                height: 14px;
+              }
+              .switch__inputLabel::before,
+              .switch__inputLabel::after {
+                content: "";
+                display: block;
+                position: absolute;
+                cursor: pointer;
+              }
+              .switch__inputLabel::before {
+                width: 100%;
+                height: 100%;
+                background-color: #454554;
+                border-radius: 8px;
+                transition: all 200ms linear;
+                transition-delay: 100ms;
+              }
+              .switch__inputLabel::after {
+                top: -3px;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #bdbdbd;
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+                transition: all 200ms linear;
+                transition-delay: 100ms;
+              }
+              .switch__inputToggle:checked + .switch__inputLabel::before {
+                background-color: rgba(72,166,235,.54);
+              }
+              .switch__inputToggle:checked + .switch__inputLabel::after {
+                left: 16px;
+                background-color: #48a6eb;
+              }
+        }
+    }
+    .total__fundsFooter{
+        flex-direction: column;
+        @media (min-width:768px) {
+          flex-direction: row;
+          align-items: center;
+        }
+        .funds__footerAmount{
+          font-size: 24px;
+          margin-bottom: 14px;
+          @media (min-width:768px) {
+            margin-bottom: 0;
+          }
+          @media (min-width:992px) {
+            font-size: 32px;
+            margin-bottom: 0;
+          }
+        }
+        .funds__footerButtons{
+          width: 100%;
+          height: 36px;
+          column-gap: 14px;
+          @media (min-width:768px) {
+            column-gap: 20px;
+            width: auto;
+          }
+            .footer__buttonExchange{
+                flex-grow: 1;
+                color: white;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 0 24px;
+                background-color: transparent;
+                border: 1px solid #83838d;
+                border-radius: 8px;
+                box-shadow: 0 0 rgba(0, 0, 0 , .20), 0 0 rgba(0, 0, 0 , .14), 0 0 rgba(0, 0, 0 , .12);
+                @media (min-width:768px) {
+                  
+                }
+            }
+            .footer__buttonDeposit{
+                flex-grow: 1;
+                color: white;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 0 24px;
+                background-color: #48a6eb;
+                border: none;
+                border-radius: 8px;
+                box-shadow: 0 0 rgba(0, 0, 0 , .20), 0 0 rgba(0, 0, 0 , .14), 0 0 rgba(0, 0, 0 , .12);
+            }
+        }
+    }
+}

@@ -1,0 +1,180 @@
+@import "../../styles/fixed-styles";
+.section__wrapper{
+    @extend %mainSectionsStyle;
+    overflow-x: auto;
+    .section__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header__title{
+            display: flex;
+            flex-grow: 1;
+            justify-content: start;
+            align-items: center;
+            cursor: pointer;
+            .header__icon{
+                display: inline-block;
+                margin-inline-end: 10px;
+                font-size: 24px;
+                color: rgba(187, 196, 201, .85);
+                svg{
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            h2{
+                font-size: 16px;
+                color: rgba(187, 196, 201, .85);
+                @media (min-width:992px) {
+                    font-size: 20px;
+                }
+            }
+            .chevron__icon{
+                @extend .header__icon;
+                padding-inline-start: 10px;
+                padding-inline-end: 0;
+                &.expanded{
+                    transform: rotate(180deg);
+                    padding-inline-start: 0;
+                    padding-inline-end: 10px;
+                }
+            }
+            &:hover{
+                span,h2{
+                    color: white;
+                }
+            }
+        }
+        .header__linkWrapper{
+            .header__link{
+                text-decoration: none;
+                color: #48a6eb;
+            }
+        }
+    }
+    .section__bodyWrapper{
+        margin-top: 20px;
+        border-radius: 8px;
+        display: none;
+        width: 100%;
+        &.isExpanded{
+            display: inline-block;
+        }
+        .section__body{
+            display: flex;
+            column-gap: 20px;
+            background-color: #2b2b3c;
+            overflow-x: auto;
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+            .trading__blockWrapper{
+                min-width: 235px;
+                padding: 20px;
+                flex-grow: 1;
+                background: linear-gradient(90deg,#1d1329 0%,#1e1429 20%,#0c0b29 100%);
+                background: rgb(32 ,32 ,48);
+                border-radius: 8px;
+                .trading__block{
+                    display: flex;
+                    flex-direction: column;
+                    color: white;
+                    .trading__title{
+                        font-size: 16px;
+                        text-align: center;
+                        font-weight: 400;
+                    }
+                    .trading__rate{
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 4px;
+                        .trading__rateNumber{
+                             span{
+                                padding-inline-end: 4px;
+                                &:first-of-type{
+                                    color: #bbc4c9;
+                                }
+                                &:last-of-type{
+                                    padding-inline-end: 10px;
+                                }
+                            }
+                        }
+                        .trading__rateTotal{
+                            span{
+                                &.isRated{
+                                    color: #48a6eb;
+                                }
+                                color: rgba(255,255,255,.05);
+                                &:not(:last-of-type){
+                                    padding-inline-end: 4px;
+                                }
+                                svg{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+                    }
+                    .trading__chart{
+                        margin-block: 12px 10px;
+                    }
+                    .trade__numbersInfo{
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 20px;
+                        .total__profit{
+                            display: flex;
+                            flex-direction: column;
+                            span{
+                                &:first-of-type{
+                                    font-size: 12px;
+                                    color: #83838d;
+                                }
+                                &:last-of-type{
+                                    font-size: 14px;
+                                    color: #2da36a;
+                                }
+                            }
+                        }
+                        .followers__equity{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            span{
+                                &:first-of-type{
+                                    font-size: 12px;
+                                    color: #83838d;
+                                }
+                                &:nth-of-type(2){
+                                    font-size: 14px;
+                                    color: white;
+                                }
+                                &:last-of-type{
+                                    font-size: 12px;
+                                    color: #bbc4c9;
+                                }
+                            }
+                        }
+                    }
+                    .trading__linkWrapper{
+                        .trading__link{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                            height: 36px;
+                            text-decoration: none;
+                            color: white;
+                            background-color: #2da36a;
+                            padding: 0 24px;
+                            border-radius: 8px;
+                            text-align: center;
+                            span{
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.welcome__page{
+    height: 100vh;
+    background: #010306;
+    overflow-y: scroll;
+    @media (min-width: 768px){
+        background: url("../../images/welcome-bg.webp") no-repeat center center/cover;
+    }
+    .logo{
+        margin-block: 25px;
+        text-align: center;
+        @media (min-width: 768px) {
+            margin-block: 50px 90px;
+            text-align: left;
+        }  
+        @media (min-width:992px) {
+            margin-inline: 4.5rem 0;
+        }      
+        .logo__wrapper{
+            display: inline;
+            text-align: center;
+            img{
+                height: 15px;
+                width: 126px;
+                @media (min-width: 768px) {
+                    height: 29px;
+                    width: 146px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+@import "../../styles/fixed-styles"; 
+.fund__yourAccount{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    background-image: linear-gradient(116deg,rgba(62,63,84,.9),rgba(50,51,66,.9));        
+    transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+    z-index: 9999;
+    .deposit__wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        @media (min-width: 768px) and (max-width: 991.98px) { 
+            max-width: calc(100vw - 60px);
+            height: 100vh;
+            padding-block: 10px;
+        }
+        @media (min-width: 992px) { 
+            max-width: 880px;
+            max-height: calc(100vh - 77px);
+         }
+         .deposit{
+             display: flex;
+             flex-direction: column;
+             width: 100%;
+             height: 100%;
+             background-color: rgba(18, 22, 31, 1);
+             background-color: #12161F;
+             @media (min-width: 768px) and (max-width: 991.98px) { 
+                border-radius: 12px;
+            }
+            @media (min-width: 992px) { 
+                  border-radius: 12px;
+                  height: fit-content;
+             }
+            .deposit__header{
+                display: flex;
+                align-items: center;
+                width: inherit;
+                color: #bbc4c9;
+                padding: 20px 16px 0;
+                // margin-bottom: 20px;
+                .deposit__headerTitle{
+                    font-size: 16px;
+                    &:first-of-type{
+                        display: none;
+                    }
+                    @media (min-width: 768px) and (max-width: 991.98px) { 
+                        &:first-of-type{
+                            display: block;
+                        }
+                        &:last-of-type{
+                            display: none;
+                        }
+                    }
+                    @media (min-width: 992px) {                             
+                        &:first-of-type{
+                            display: block;
+                        }
+                        &:last-of-type{
+                            display: none;
+                        }
+                    }
+                }
+                .deposit__headerIcon{
+                    margin-left: auto;
+                    cursor: pointer;
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+            .deposit__body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 14px 0 16px;
+                margin-right: 2px;
+                margin-bottom: 14px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                &::-webkit-scrollbar {
+                    width: 7px;
+                }
+                &::-webkit-scrollbar-track {
+                    border-radius: 10px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: #2A2E36; 
+                    border-radius: 10px;
+                }
+                .deposit__bodyTitle{
+                    display: none;
+                    font-size: 24px;
+                    font-weight: 300;
+                    color: #bbc4c9;
+                    margin-bottom: 30px;
+                    @media (min-width: 768px) and (max-width: 991.98px) { 
+                        display: block;
+                    }
+                    @media (min-width: 992px) {    
+                        display: block;
+                        margin-bottom: 20px;                         
+                    }
+                }
+                .deposit__bodyImageWrapper{
+                    margin-bottom: 20px;
+                    img{
+                        width: 348px;
+                        height: 210px;
+                        object-fit: cover;
+                    }
+                }
+                .deposit__bodyDescription{
+                    font-size: 16px;
+                    color: #bbc4c9;
+                    font-weight: 300;
+                    text-align: center;
+                    line-height: 20px;
+                    @media (min-width: 768px) and (max-width:991.98px) {                             
+                        padding-inline: 5px;
+                    }
+                    @media (min-width: 992px) {                             
+                        padding-inline: 4px;
+                    }
+                }
+            }
+            .deposit__footer{
+                display: flex;
+                justify-content: center;
+                margin-top: auto;
+                padding: 16px;
+                @media (min-width: 768px) and (max-width: 991.98px) { 
+                    padding: 20px 30px;
+                }
+                @media (min-width: 992px) {                             
+                    padding: 20px 30px;
+                }
+                .deposit__footerButton{
+                    @extend %mainButton;
+                    width: 100%;
+                    height: 36px;
+                    @media (min-width: 768px) and (max-width: 991.98px) { 
+                        width: auto;
+                    }
+                    @media (min-width: 992px) {                             
+                        width: auto;
+                    }
+                }
+            }
+
+        }
+    }
+}

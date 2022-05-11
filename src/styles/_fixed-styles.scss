@@ -1,0 +1,28 @@
+%mainButton{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 24px;
+    background-color: #48a6eb;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 rgba(0, 0, 0 , .20), 0 0 rgba(0, 0, 0 , .14), 0 0 rgba(0, 0, 0 , .12);
+}
+
+%subButton{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 24px;
+    background-color: transparent;
+    border: 1px solid #83838d;
+    border-radius: 8px;
+    box-shadow: 0 0 rgba(0, 0, 0 , .20), 0 0 rgba(0, 0, 0 , .14), 0 0 rgba(0, 0, 0 , .12);
+}
+
+%mainSectionsStyle{
+    background-color: #2b2b3c;
+    box-shadow: 0 6px 10px rgba(42, 46, 54 , .65);
+    padding: 20px;
+    border-radius: 12px;
+}

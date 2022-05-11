@@ -1,0 +1,107 @@
+@import "../../styles/fixed-styles";
+.wallets{
+    @extend %mainSectionsStyle;
+    position: relative;
+    height: fit-content;
+    padding: 14px;
+    @media (min-width:768px) {
+        padding: 20px;
+    }
+    .section__tableWrapper{
+        margin-top: 20px;
+        display: none;
+        &.expanded{
+            display: block;
+        }
+        .section__table{
+            background-color: #2b2b3c ;
+            thead{
+                tr{
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    @media (min-width:768px) {
+                        grid-template-columns: 2fr 1fr 1fr 241px;
+                    }
+                    th{
+                        border-top: 1px solid rgba(255,255,255,.12);
+                        border-bottom: none !important;
+                        font-size: 12px;
+                        color: #83838d;
+                        &:nth-of-type(3),&:nth-of-type(4){
+                            display: none;
+                            @media (min-width:768px) {
+                                display: block; 
+                            }
+                        }
+                        &:nth-of-type(2),&:nth-of-type(3){
+                            text-align: end;
+                        }
+                    }
+                }
+            }
+            tbody{
+                border: none !important;
+                tr{
+                    cursor: pointer;
+                    display: grid;
+                    grid-template-columns: 2fr 1fr;
+                    @media (min-width:768px) {
+                        grid-template-columns: 2fr 1fr 1fr 241px;
+                    }
+                    td{
+                        display: flex;
+                        align-items: center;
+                        border-top: 1px solid rgba(255,255,255,.12);
+                        border-bottom: none !important;
+                        font-size: 14px;
+                        color: white;
+                        &:nth-of-type(2),&:nth-of-type(3){
+                            justify-content: flex-end;
+                            span{
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                        }
+                        &:nth-of-type(4){
+                            display: grid;
+                            grid-template-columns: auto auto;
+                            justify-content: flex-end;
+                        }
+                        &:nth-of-type(3),&:nth-of-type(4){
+                            display: none;
+                            @media (min-width:768px) {
+                                display: block; 
+                            }
+                        }
+                        >div{
+                            span{
+                                &:nth-of-type(2){
+                                    font-size: 12px;
+                                    color: #bbc4c9;
+                                }
+                            }
+                        }
+                        .deposit__button{
+                            @extend %mainButton;
+                            margin-inline-end: 20px;
+                            padding-block: 5px
+                        }
+                        .withdraw__button{
+                            @extend %subButton;
+                            padding-block: 5px
+                        }
+                    }
+                    &:hover{
+                        background-color: rgba(255, 255, 255, .1);
+                    }
+                    &:last-of-type{
+                        margin-bottom: 34px;
+                        @media (min-width:768px) {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
