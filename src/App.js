@@ -19,6 +19,7 @@ import CopyTrading from "./pages/CopyTrading/CopyTrading";
 import Yield from "./pages/Yield/Yield";
 import Contests from "./pages/Contests/Contests";
 import styles from "./App.module.scss";
+import More from "./pages/More/More";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path='copytrading' element={<CopyTrading />} />
             <Route path='yield' element={<Yield />} />
             <Route path='contests' element={<Contests />} />
+            <Route path='more' element={<More />} />
           </Route>
           <Route
             path='*'

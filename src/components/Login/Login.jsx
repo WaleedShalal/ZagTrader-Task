@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid, regular } from "@fortawesome/fontawesome-svg-core/import.macro";
 import sslImg from "../../images/ssl.svg";
@@ -7,6 +7,7 @@ import amazonImg from "../../images/amazon.svg";
 import styles from "./Login.module.scss";
 
 function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, SetLoginError] = useState("");
   const handlePasswordShow = () => {
@@ -19,6 +20,7 @@ function Login() {
       SetLoginError("Wrong email or password!");
     } else {
       SetLoginError("");
+      navigate("/mainpage/dashboard");
     }
   };
   return (
@@ -72,9 +74,7 @@ function Login() {
             Forgot password?
           </NavLink>
         </div>
-        <button className={`${styles.form__submitButton} text-white`}>
-          Log in
-        </button>
+        <button className={`${styles.form__submitButton}`}>Log in</button>
         <div className={`${styles.securityNote} justify-content-center`}>
           <span>
             <FontAwesomeIcon icon={solid("lock")} />

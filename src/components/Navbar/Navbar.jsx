@@ -1,15 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+// import classNames from "classnames";
 import { Link, NavLink } from "react-router-dom";
+import { UserLoginContext } from "../../components/Context/UserLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular, solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import logoImg from "../../images/logo-mobile.svg";
 import styles from "./Navbar.module.scss";
 
 function Navbar() {
+  const { isJustLogged, setIsJustLogged } = useContext(UserLoginContext);
+  const navlinkList = useRef(null);
   const defaultActiveLink = useRef(null);
   const activeLinkDecoration = useRef(null);
   const [currActiveLink, setCurrActiveLink] = useState();
-  const testRef = useRef(null);
+  const handleChangeLoggedStatus = () => {
+    setIsJustLogged(false);
+    sessionStorage.setItem("justLogged", JSON.stringify(isJustLogged));
+  };
+
   useEffect(() => {
     setCurrActiveLink(
       (prevState) => (prevState = defaultActiveLink.current.closest("li")),
@@ -68,7 +76,8 @@ function Navbar() {
       <nav className={`${styles.nav__responsiveWrapper}`}>
         <ul
           className={`${styles.nav__mainItemsList} list-unstyled mb-0`}
-          onClick={handleActiveLink}>
+          onClick={handleActiveLink}
+          ref={navlinkList}>
           <li
             className={`${styles.activeLinkDecoration}`}
             ref={activeLinkDecoration}></li>
@@ -81,7 +90,7 @@ function Navbar() {
                 <FontAwesomeIcon icon={solid("house")} />
               </span>
               <span>Main</span>
-              <div className={`${styles.test}`} ref={testRef}></div>
+              {/* <div className={`${styles.test}`}></div> */}
             </NavLink>
           </li>
           <li>
@@ -119,7 +128,11 @@ function Navbar() {
           <li>
             <NavLink
               to='/mainpage/contests'
-              className={`${styles.contests__Link} ${activeLinkStyle}`}>
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.active} ${styles.contests__Link}`
+                  : undefined
+              }>
               <span>
                 <FontAwesomeIcon icon={solid("trophy")} />
               </span>
@@ -128,12 +141,26 @@ function Navbar() {
             <span className={`${styles.contests__hot}`}>Hot!</span>
           </li>
         </ul>
-        <div className={`${styles.nav__subItemsListIcon}`}>
+        <div
+          className={`${styles.nav__subItemsListIcon} ${styles.nav__subItemsListIconShow}`}>
           <span>
             <FontAwesomeIcon icon={solid("bars")} />
           </span>
           <span className='d-block d-lg-none'>More</span>
         </div>
+        <NavLink
+          to='/mainpage/more'
+          className={({ isActive }) =>
+            isActive
+              ? `${styles.active} ${styles.nav__subItemsListIcon} ${styles.nav__subItemsListIconLink}`
+              : `${styles.nav__subItemsListIcon} ${styles.nav__subItemsListIconLink}`
+          }>
+          <span>
+            <FontAwesomeIcon icon={solid("bars")} />
+          </span>
+          <span className='d-block d-lg-none'>More</span>
+        </NavLink>
+
         <div className={`${styles.nav__subItemsListWrapper}`}>
           <div>
             <span>
@@ -190,8 +217,8 @@ function Navbar() {
                 <span>Settings</span>
               </Link>
             </li>
-            <li>
-              <Link to='/mainpage/dashboard'>
+            <li onClick={handleChangeLoggedStatus}>
+              <Link to='/sign-in'>
                 <span>
                   <FontAwesomeIcon icon={solid("arrow-right-from-bracket")} />
                 </span>

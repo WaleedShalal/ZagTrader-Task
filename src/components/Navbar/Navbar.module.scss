@@ -168,8 +168,13 @@
                     }
                     &.active{
                         span{
-                            color: white;
+                            color: #48a6eb;
                         }
+                        @media (min-width:992px) {
+                            span{
+                                color: white;
+                            }
+                        }  
                     }
                 }
                 .contests__hot{
@@ -202,7 +207,7 @@
             }
         }
         .nav__subItemsListIcon{
-            display: flex;
+            display: none;
             flex-grow: .5;
             flex-direction: column;
             align-items: center;
@@ -212,6 +217,7 @@
             height: 54px;
             cursor: pointer;
             @media (min-width:992px) {
+                display: flex;
                 flex-grow: 0;
                 flex-direction: row;
                 border-left: 1px solid #303142;
@@ -227,12 +233,34 @@
                     }
                 }
             }
-            &:hover{
-                ~ .nav__subItemsListWrapper{
-                    display: block;
+            &.nav__subItemsListIconShow{
+                &:hover{
+                    ~ .nav__subItemsListWrapper{
+                        display: block;
+                    }
+                    span svg{
+                        color: #48a6eb;
+                    }
                 }
-                span svg{
-                    color: #48a6eb;
+            }
+            &.nav__subItemsListIconLink{
+                display: flex;
+                text-decoration: none;
+                &.active{
+                    span{
+                        color: #48a6eb;
+                    }
+                    ~ .nav__subItemsListWrapper{
+                        display: block;
+                    }
+                }
+                @media (min-width:992px) {
+                    display: none;
+                    &.active{
+                        ~ .nav__subItemsListWrapper{
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -242,7 +270,7 @@
             width: 100%;
             bottom: 60px;
             overflow-y: scroll;
-            top: calc(54px);
+            top: 39px;
             background-color: #2B2C3C;
             padding-top: 40px;
             border-radius: 0px;

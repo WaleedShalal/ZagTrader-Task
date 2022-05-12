@@ -79,6 +79,9 @@
                     padding-inline: 3px; 
                     color: #48a6eb;  
                 }
+                &:is(&:not(:focus)) ~ label{
+                    color: rgba(255,255,255,.7);
+                }
             }
             .password__showIcon{
                 display: flex;
@@ -112,14 +115,14 @@
         }
         .form__submitButton{
             width: 100%;
-            padding: 0 24px;
             border-radius: 8px;
             background-color: #48a6eb;
-            font-size: 16px;
-            font-weight: 500;
             border: none;
             line-height: 40px;
             margin-bottom: 16px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
         }
         .securityNote{
             display: flex;

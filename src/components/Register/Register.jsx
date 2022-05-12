@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -9,6 +9,10 @@ import amazonImg from "../../images/amazon.svg";
 import styles from "./Register.module.scss";
 
 function Register() {
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/mainpage/dashboard");
+  };
   const formik = useFormik({
     initialValues: {
       userEmail: "",
@@ -128,7 +132,8 @@ function Register() {
           </label>
         </div>
         <button
-          className={`${styles.form__submitButton} text-white`}
+          className={`${styles.form__submitButton}`}
+          onClick={handleNavigate}
           disabled={
             Object.keys(formik.errors).length || !formik.values.userAcceptPolicy
               ? true

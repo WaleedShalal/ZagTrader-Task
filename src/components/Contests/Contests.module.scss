@@ -1,6 +1,5 @@
 @import "../../styles/fixed-styles";
 @import "../CopyTradingPortfolio/CopyTradingPortfolio.module.scss";
-
 .contests{
     @extend %mainSectionsStyle;
     margin-bottom: 75px;
@@ -101,12 +100,28 @@
             grid-template-rows: 100px;
             column-gap: 10px;
             align-items: center;
+            @media (max-width:767.98px) {
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto;
+                padding: 14px 14px 0 0;
+            }
             .body__image{
-                height: 100%;
+                position: relative;
+                @media (max-width:767.98px) {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3; 
+                }
                 img{
-                    width: 229px;
-                    height: 115px;
-                    bottom: -18px;
+                    width: auto;
+                    height: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    @media (max-width:767.98px) {
+                        position: static;
+                        height: 73px;
+                        width: 138px;
+                    }
                 }
             }
             .title__Wrapper{
@@ -114,6 +129,7 @@
                 flex-direction: column;
                 align-items: center;
                 color: white;
+                z-index: 2;
                 .title{
                     font-size: 24px;
                     font-weight: 500;
@@ -121,20 +137,40 @@
                 .sub__title{
                     font-size: 14px;
                     font-weight: 300;
+                    text-align: center;
+                }
+                @media (max-width:767.98px) {
+                    align-items: flex-start;
+                    grid-column: 1 / 3;
+                    grid-row: 1 / 2; 
+                    padding-inline-start: 14px;
+                    .title{
+                        font-size: 16px;
+                    }
+                    .sub__title{
+                        font-size: 12px;
+                        font-weight: 400;
+                    }
                 }
             }
-            .join__nowLinkWrapper{
+            .body__linkWrapper{
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
                 padding-inline-end: 50px;
-                .join__nowLink{
+                .body__link{
                     @extend %mainButton;
                     padding-block: 8px;
                     text-decoration: none;
                     span{
                         font-weight: 500;
+                        white-space: nowrap;
                     }
+                }
+                @media (max-width:767.98px) {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3; 
+                    padding-inline-end: 0;
                 }
             }
         }
