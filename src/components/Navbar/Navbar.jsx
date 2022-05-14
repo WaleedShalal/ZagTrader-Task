@@ -1,11 +1,28 @@
 import { useContext, useEffect, useRef, useState } from "react";
-// import classNames from "classnames";
 import { Link, NavLink } from "react-router-dom";
 import { UserLoginContext } from "../../components/Context/UserLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { regular, solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import logoImg from "../../images/logo-mobile.svg";
 import styles from "./Navbar.module.scss";
+
+const clickedLinkAnimation = (e, currentActiveLink) => {
+  const clickedAnimation = currentActiveLink.querySelector(
+    `.${styles.clickedAnimation}`,
+  );
+  const animationWidth = Math.max(
+    currentActiveLink.clientWidth,
+    currentActiveLink.clientHeight,
+  );
+  const clickedArea = currentActiveLink.getBoundingClientRect();
+  const radius = animationWidth / 2;
+  clickedAnimation.style.width =
+    clickedAnimation.style.height = `${animationWidth}px`;
+  clickedAnimation.style.left = `${e.clientX - clickedArea.left - radius}px`;
+  clickedAnimation.style.top = `${e.clientY - clickedArea.top - radius}px`;
+  clickedAnimation.classList.add(`${styles.active}`);
+  setTimeout(() => clickedAnimation.classList.remove(`${styles.active}`), 400);
+};
 
 function Navbar() {
   const { isJustLogged, setIsJustLogged } = useContext(UserLoginContext);
@@ -34,14 +51,7 @@ function Navbar() {
     activeLinkDecoration.current.style.width = `${currentActiveLink.offsetWidth}px`;
     activeLinkDecoration.current.style.left = `${currentActiveLink.offsetLeft}px`;
     setCurrActiveLink((prevState) => (prevState = currentActiveLink));
-
-    // const clickedArea = currentActiveLink.getBoundingClientRect();
-    // testRef.current.style.transformOrigin = `${clickedArea.x}px ${clickedArea.y}px`;
-    // console.log(clickedArea);
-    // testRef.current.classList.add(`${styles.active}`);
-    // setTimeout(function () {
-    //   testRef.current.classList.remove(`${styles.active}`);
-    // }, 1000);
+    clickedLinkAnimation(e, currentActiveLink);
   };
 
   useEffect(() => {
@@ -81,6 +91,9 @@ function Navbar() {
           <li
             className={`${styles.activeLinkDecoration}`}
             ref={activeLinkDecoration}></li>
+          {/* <li
+            className={`${styles.clickedAnimation}`}
+            ref={clickedAnimation}></li> */}
           <li>
             <NavLink
               to='/mainpage/dashboard'
@@ -90,8 +103,8 @@ function Navbar() {
                 <FontAwesomeIcon icon={solid("house")} />
               </span>
               <span>Main</span>
-              {/* <div className={`${styles.test}`}></div> */}
             </NavLink>
+            <div className={`${styles.clickedAnimation}`}></div>
           </li>
           <li>
             <NavLink to='/mainpage/margin' className={activeLinkStyle}>
@@ -100,6 +113,7 @@ function Navbar() {
               </span>
               <span>Margin</span>
             </NavLink>
+            <div className={`${styles.clickedAnimation}`}></div>
           </li>
           <li>
             <NavLink to='/mainpage/buycrypto' className={activeLinkStyle}>
@@ -108,6 +122,7 @@ function Navbar() {
               </span>
               <span>Buy crypto</span>
             </NavLink>
+            <div className={`${styles.clickedAnimation}`}></div>
           </li>
           <li>
             <NavLink to='/mainpage/copytrading' className={activeLinkStyle}>
@@ -116,6 +131,7 @@ function Navbar() {
               </span>
               <span>Copy-trading</span>
             </NavLink>
+            <div className={`${styles.clickedAnimation}`}></div>
           </li>
           <li>
             <NavLink to='/mainpage/yield' className={activeLinkStyle}>
@@ -124,6 +140,7 @@ function Navbar() {
               </span>
               <span>Yield</span>
             </NavLink>
+            <div className={`${styles.clickedAnimation}`}></div>
           </li>
           <li>
             <NavLink
@@ -139,6 +156,7 @@ function Navbar() {
               <span>Contests</span>
             </NavLink>
             <span className={`${styles.contests__hot}`}>Hot!</span>
+            <div className={`${styles.clickedAnimation}`}></div>
           </li>
         </ul>
         <div
