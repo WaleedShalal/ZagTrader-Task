@@ -4,11 +4,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 60px;
     transition: transform 450ms linear;
     border-radius: 12px;
     background-color: #191a26;
     padding: 12px 20px;
+    @media (min-width:992px) {
+        height: 100%;
+    }
     .slide__contentWrapper{
         color: white;
         display: flex;
